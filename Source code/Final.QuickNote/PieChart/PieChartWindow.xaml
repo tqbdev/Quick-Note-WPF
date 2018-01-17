@@ -1,0 +1,53 @@
+﻿<Window x:Class="Final.QuickNote.PieChart.PieChartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final.QuickNote.PieChart"
+        xmlns:convert="clr-namespace:Final.QuickNote.PieChart.Converter"
+        mc:Ignorable="d"
+        Title="Tag Statistics" Height="415" Width="800"
+        ResizeMode="NoResize"
+        Icon="/Res/tag-statistics.png">
+    <Window.Resources>
+        <convert:TagToAmountConvert x:Key="TagToAmountConvert"/>
+        <convert:TagToNameConvert x:Key="TagToNameConvert"/>
+        <convert:FormattingConverter x:Key="FormattingConverter"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Canvas x:Name="canvas" Margin="20" DockPanel.Dock="Left" Width="350" Height="350"></Canvas>
+        <ListView x:Name="listViewTag" Margin="10" DockPanel.Dock="Right">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Black" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Color">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="Black" BorderThickness="1">
+                                        <Rectangle Width="40" Height="40" Fill="{Binding Path=Fill}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=PieceValue, Converter={StaticResource TagToNameConvert}}">
+                        </GridViewColumn>
+                        <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Path=PieceValue, Converter={StaticResource TagToAmountConvert}}">
+                        </GridViewColumn>
+                        <GridViewColumn Header="Percent" DisplayMemberBinding="{Binding Path=Percentage, Converter={StaticResource FormattingConverter}, ConverterParameter='\{0:0%\}'}">
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
