@@ -1,13 +1,11 @@
-# Readme for Final Examine
-# Quick Note
+# Quick Note WPF C#
 
 ### ---------------- INFO ----------------
-1. ID: 1512029
-2. Name: Trần Quốc Bảo
-3. Emal: tranquocbao3897@gmail.com
-4. Version Visual Studio: Community 2017.
-5. Release: Bản release được build ở dạng release.
-6. Application: Chương trình được viết bằng C# (WPF).
+1. Name: Trần Quốc Bảo
+2. Emal: tranquocbao3897@gmail.com
+3. Version Visual Studio: Community 2017.
+4. Release: Bản release được build ở dạng release.
+5. Application: Chương trình được viết bằng C# (WPF).
 
 ### -------------- FEATURES --------------
 1. Khi khởi động chương trình hiển thị một notify icon trong phần notification area,
@@ -74,11 +72,8 @@ khi minimize cửa sổ view notes sẽ tiếp tục chạy chương trình vớ
 (Có thể phải retarget về phiên bản thấp hơn)
 2. Chương trình được viết bằng C# (WPF)
 
-### ------------ LINK BITBUCKET -----------
+### ------ GIT ORIGINAL (BITBUCKET) ------
 > https://1512029@bitbucket.org/1512029/final.quicknote.git
-```
-Chú ý link repository trên là private đã add key public của giáo viên.
-Đồng thời add user tdquang_edu vào repository với quyền read.
-```
+
 ### ------------- LINK YOUTUBE ------------
 > https://youtu.be/xBgTd5KrtsM
